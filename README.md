@@ -1,2 +1,2 @@
-# HostBills
+# HostPays
 Hosting Payment Platform.
