@@ -1,22 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
+    <title>{{ config('app.name', 'Laravel') }} - Admin</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
-
 <body>
     <nav class="bg-gray-800">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -41,15 +34,13 @@
                         <a href="/" class="text-lg font-semibold text-white">
                             {{ config('app.name', 'Laravel') }}
                         </a>
-
                     </div>
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
-                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                                 aria-current="page">Dashboard</a>
-                            <a href="{{ route('products.index')}}"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Settings</a>
 
                             <a href="#"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Announcements</a>
@@ -76,7 +67,7 @@
                                     d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                             </svg>
                         </button>
-                        <div class="user-menu">
+                        <div class="user-menu" >
                             <div class="ml-3 relative">
                                 <div>
                                     <button type="button"
@@ -94,8 +85,8 @@
                                     tabindex="-1" id="user-menu">
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                         tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                                    <a href="{{ route('settings') }}" class="block px-4 py-2 text-sm text-gray-700"
-                                        role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                                    <a href="{{route('welcome') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                        tabindex="-1" id="user-menu-item-1">{{ __('Back to shop')}}</a>
                                     <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700"
                                         role="menuitem" tabindex="-1" id="user-menu-item-2"
                                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -127,22 +118,6 @@
             </div>
         </div>
     </nav>
-    @if (session('error'))
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold">O no!</strong>
-            <span class="block sm:inline"> {{ session('error') }}.</span>
-            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" id="close"
-                    viewBox="0 0 20 20">
-                    <title>Close</title>
-                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" /></svg>
-            </span>
-        </div>
-    @endif
-    <main class="py-4">
-        @yield('content')
-    </main>
-    </div>
     <script>
         //Navbar
         var menu = document.getElementById("mobile-menu");
@@ -154,10 +129,9 @@
                 menu.classList.add('hidden');
             }
         }
-
         // User menu
         var userMenu = document.getElementById("user-menu");
-        if (userMenu) {
+        if(userMenu){
             var userMenuButton = document.getElementById("user-menu-button");
             userMenuButton.addEventListener('click', function() {
                 if (userMenu.classList.contains('hidden')) {
@@ -167,14 +141,11 @@
                 }
             });
         }
-        // Close error message
-        var errorMessage = document.getElementById("close");
-        if(errorMessage) {
-            errorMessage.addEventListener('click', function() {
-                errorMessage.parentElement.parentElement.remove();
-            });
-        }
     </script>
+    <main class="py-4">
+        @yield('content')
+    </main>
+    </div>
 </body>
 
 </html>
