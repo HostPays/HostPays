@@ -41,7 +41,6 @@
                         <a href="/" class="text-lg font-semibold text-white">
                             {{ config('app.name', 'Laravel') }}
                         </a>
-
                     </div>
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
@@ -69,7 +68,6 @@
                         <button type="button"
                             class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                             <span class="sr-only">View notifications</span>
-                            <!-- Heroicon name: outline/bell -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -83,7 +81,6 @@
                                         class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="sr-only">Open user menu</span>
-                                        <!-- gravatar image -->
                                         <img class="h-8 w-8 rounded-full"
                                             src="https://www.gravatar.com/avatar/{{ md5(auth()->user()->email) }}?s=80"
                                             alt="">

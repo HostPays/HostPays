@@ -33,5 +33,5 @@ Route::resource('/products', App\Http\Controllers\ProductsController::class);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::resource('/', App\Http\Controllers\Admin\AdminController::class);
-  //  Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class);
+    Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class);
 });
